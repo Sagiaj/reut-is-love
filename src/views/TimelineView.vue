@@ -2,7 +2,16 @@
   <v-container grid-list-lg>
     <v-row justify="center" class="background">
       <v-col align="center">
-        <v-parallax :src="parallaxSrc" style="max-width: 100%;">
+        <div>
+          <h1>
+            Welcome to Lush's birthday!!
+          </h1>
+        </div>
+        <v-parallax
+          :src="parallaxSrc"
+          style="max-width: 100%; height: 80vh;"
+          class="my-5"
+        >
           <v-row justify="end">
             <v-col align="end" align-self="end">
               <h1>The story of my Lush life</h1>
@@ -40,7 +49,7 @@
             min-height="200"
             :transition="transitions[i % 4]"
           >
-            <span>
+            <div>
               <v-card
                 class="mx-auto"
                 max-width="400"
@@ -55,8 +64,8 @@
                 >
                 </v-img>
 
-                <v-card-subtitle class="pb-0">{{
-                  event.subtitle || ""
+                <v-card-subtitle class="pb-0" v-if="event.subtitle">{{
+                  event.subtitle
                 }}</v-card-subtitle>
 
                 <!-- <v-card-text class="text--primary">
@@ -65,12 +74,12 @@
               </v-card>
               <v-row justify="center" v-if="event.text">
                 <v-col align="center" cols="10" md="6">
-                  <v-alert type="" :value="true" outlined>
+                  <v-alert type="background" :value="true" outlined>
                     {{ event.text }}
                   </v-alert>
                 </v-col>
               </v-row>
-            </span>
+            </div>
           </v-lazy>
         </v-timeline-item>
       </span>
@@ -321,6 +330,6 @@ export default {
 }
 
 .v-parallax .v-parallax__image-container img {
-  bottom: -100% !important;
+  bottom: -55% !important;
 }
 </style>
